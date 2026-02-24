@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo" onclick="router.navigate('/')">Wishory</h1>
+            <nav class="season-nav">
+                <button class="season-btn" data-season="all" onclick="router.navigate('/wishlist/all')">All</button>
+                <button class="season-btn" data-season="spring" onclick="router.navigate('/wishlist/spring')">Spring</button>
+                <button class="season-btn" data-season="summer" onclick="router.navigate('/wishlist/summer')">Summer</button>
+                <button class="season-btn" data-season="fall" onclick="router.navigate('/wishlist/fall')">Fall</button>
+                <button class="season-btn" data-season="winter" onclick="router.navigate('/wishlist/winter')">Winter</button>
+            </nav>
+            <div class="user-menu">
+                <button class="menu-btn" onclick="router.navigate('/cart')">Cart</button>
+                <button class="menu-btn" onclick="router.navigate('/orders')">Orders</button>
+                <button class="menu-btn" id="auth-btn" onclick="handleAuthClick()">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="page-home" class="page-section">
+            <!-- Hero Slider -->
+            <section id="hero-slider" class="hero-slider">
+                <div class="slider-container">
+                    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200');">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h2 class="hero-title">Record Your Seasons, Wishory</h2>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200');">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h2 class="hero-title">Capture Every Moment</h2>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200');">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h2 class="hero-title">Your Style, Your Story</h2>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn prev" onclick="changeSlide(-1)">‹</button>
+                <button class="slider-btn next" onclick="changeSlide(1)">›</button>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </section>
+
+            <!-- Wishory Highlights Marquee -->
+            <section id="highlights-marquee" class="highlights-section">
+                <h2 class="highlights-title">Wishory Highlights</h2>
+                <div class="marquee-container" id="marquee-container">
+                    <div class="marquee-track" id="marquee-track"></div>
+                </div>
+            </section>
+
+            <div class="home-container">
+                <h2>Welcome to Wishory</h2>
+                <p>Create your seasonal wishlist and shop your favorite items!</p>
+                <div class="season-cards">
+                    <div class="season-card" onclick="router.navigate('/wishlist/spring')">
+                        <h3>Spring</h3>
+                    </div>
+                    <div class="season-card" onclick="router.navigate('/wishlist/summer')">
+                        <h3>Summer</h3>
+                    </div>
+                    <div class="season-card" onclick="router.navigate('/wishlist/fall')">
+                        <h3>Fall</h3>
+                    </div>
+                    <div class="season-card" onclick="router.navigate('/wishlist/winter')">
+                        <h3>Winter</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="page-login" class="page-section hidden">
+            <div class="auth-container">
+                <h2>Login</h2>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-id">ID</label>
+                        <input type="text" id="login-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-pw">Password</label>
+                        <input type="password" id="login-pw" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                    <p class="auth-link">Don't have an account? <a href="#" onclick="router.navigate('/signup'); return false;">Sign up</a></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Signup Page -->
+        <section id="page-signup" class="page-section hidden">
+            <div class="auth-container">
+                <h2>Sign Up</h2>
+                <form id="signup-form" onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signup-id">ID</label>
+                        <input type="text" id="signup-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-pw">Password (Max 16 characters)</label>
+                        <input type="password" id="signup-pw" maxlength="16" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign Up</button>
+                    <p class="auth-link">Already have an account? <a href="#" onclick="router.navigate('/login'); return false;">Login</a></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Wishlist Page -->
+        <section id="page-wishlist" class="page-section hidden">
+            <div class="wishlist-container">
+                <h2 id="wishlist-title">Wishlist</h2>
+                <div class="category-filter">
+                    <button class="category-btn active" data-category="all" onclick="filterProducts('all')">전체 (All)</button>
+                    <button class="category-btn" data-category="Outer" onclick="filterProducts('Outer')">Outer</button>
+                    <button class="category-btn" data-category="Top" onclick="filterProducts('Top')">Top</button>
+                    <button class="category-btn" data-category="Bottom" onclick="filterProducts('Bottom')">Bottom</button>
+                    <button class="category-btn" data-category="Dress" onclick="filterProducts('Dress')">Dress</button>
+                    <button class="category-btn" data-category="Shoes" onclick="filterProducts('Shoes')">Shoes</button>
+                    <button class="category-btn" data-category="Accessories" onclick="filterProducts('Accessories')">Accessories</button>
+                </div>
+                <button class="btn-primary add-item-btn" onclick="openAddItemModal()">Add Item</button>
+                <div id="product-grid" class="product-grid"></div>
+            </div>
+        </section>
+
+        <!-- Cart Page -->
+        <section id="page-cart" class="page-section hidden">
+            <div class="cart-container">
+                <h2>Shopping Cart</h2>
+                <div id="cart-table-container"></div>
+                <div id="checkout-form-container" class="checkout-form">
+                    <h3>Checkout</h3>
+                    <form id="checkout-form" onsubmit="handleCheckout(event)">
+                        <div class="form-group">
+                            <label for="checkout-name">Name</label>
+                            <input type="text" id="checkout-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-phone">Phone</label>
+                            <input type="tel" id="checkout-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-address">Address</label>
+                            <input type="text" id="checkout-address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-bank">Bank</label>
+                            <select id="checkout-bank" required>
+                                <option value="">Select Bank</option>
+                                <option value="KB">KB Bank</option>
+                                <option value="Shinhan">Shinhan Bank</option>
+                                <option value="Hana">Hana Bank</option>
+                                <option value="Woori">Woori Bank</option>
+                                <option value="NH">NH Bank</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout-password">Account Password (Max 6 digits)</label>
+                            <input type="password" id="checkout-password" maxlength="6" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Complete Order</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders Page -->
+        <section id="page-orders" class="page-section hidden">
+            <div class="orders-container">
+                <h2>Order History</h2>
+                <div class="date-filter">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" onchange="filterOrders()">
+                    <label for="end-date">End Date</label>
+                    <input type="date" id="end-date" onchange="filterOrders()">
+                </div>
+                <div id="orders-list" class="orders-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Wishory | 02-1234-5678 | Seoul, Korea | Instagram | Youtube | X</p>
+    </footer>
+
+    <!-- Add Item Modal -->
+    <div id="add-item-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddItemModal()">&times;</span>
+            <h2>Add Item</h2>
+            <form id="add-item-form" onsubmit="handleAddItem(event)">
+                <div class="form-group">
+                    <label for="item-name">Name</label>
+                    <input type="text" id="item-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-price">Price</label>
+                    <input type="number" id="item-price" min="0" step="0.01" required>
+                </div>
+                <div class="form-group" id="item-season-group">
+                    <label for="item-season">Season</label>
+                    <select id="item-season">
+                        <option value="">Select Season</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Winter">Winter</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-category">Category</label>
+                    <select id="item-category" required>
+                        <option value="">Select Category</option>
+                        <option value="Outer">Outer</option>
+                        <option value="Top">Top</option>
+                        <option value="Bottom">Bottom</option>
+                        <option value="Dress">Dress</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-url">Product URL</label>
+                    <input type="url" id="item-url" placeholder="https://example.com/product">
+                </div>
+                <div class="form-group">
+                    <label for="item-image-url">Image URL</label>
+                    <input type="url" id="item-image-url" placeholder="https://example.com/image.jpg">
+                </div>
+                <button type="submit" class="btn-primary">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div id="edit-item-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditItemModal()">&times;</span>
+            <h2>Edit Item</h2>
+            <form id="edit-item-form" onsubmit="handleEditItem(event)">
+                <input type="hidden" id="edit-item-id">
+                <div class="form-group">
+                    <label for="edit-item-name">Name</label>
+                    <input type="text" id="edit-item-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-item-price">Price</label>
+                    <input type="number" id="edit-item-price" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-item-category">Category</label>
+                    <select id="edit-item-category" required>
+                        <option value="">Select Category</option>
+                        <option value="Outer">Outer</option>
+                        <option value="Top">Top</option>
+                        <option value="Bottom">Bottom</option>
+                        <option value="Dress">Dress</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-item-url">Product URL</label>
+                    <input type="url" id="edit-item-url" placeholder="https://example.com/product">
+                </div>
+                <div class="form-group">
+                    <label for="edit-item-image-url">Image URL</label>
+                    <input type="url" id="edit-item-image-url" placeholder="https://example.com/image.jpg">
+                </div>
+                <button type="submit" class="btn-primary">Update Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

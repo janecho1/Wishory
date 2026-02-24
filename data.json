@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "id": "user",
+      "password": "1234"
+    },
+    {
+      "id": "admin",
+      "password": "1234"
+    }
+  ],
+  "items": [
+    {
+      "id": "1771505503412",
+      "name": "[+영상핏] 백프린팅 오버핏 레터링 후드티",
+      "price": 25500,
+      "season": "Spring",
+      "category": "Top",
+      "url": "https://m.a-bly.com/goods/29188058",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/TIYNphLLVRo/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI0MTAwMV8xNzI3NzI4MzA5MDgyMjE0bC5qcGc",
+      "userId": "user"
+    },
+    {
+      "id": "1771507058310",
+      "name": "러글 브이넥 니트(3color)",
+      "price": 15500,
+      "season": "Fall",
+      "category": "Top",
+      "url": "https://m.a-bly.com/goods/54442034",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/KkiJLA1fUUs/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI1MTAyMF8xNzYwOTQ2NDA5MDUxNjYzbC5qcGc",
+      "userId": "user"
+    },
+    {
+      "id": "1771507156444",
+      "name": "네쉬빌 레터링 라운드 슬림 반팔",
+      "price": 17570,
+      "season": "Summer",
+      "category": "Top",
+      "url": "https://m.a-bly.com/goods/45232668",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/qS-qkn_mPss/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI1MDQyMV8xNzQ1MjIyNTAyNTYzMDQwbC5wbmc",
+      "userId": "user"
+    },
+    {
+      "id": "1771507329180",
+      "name": "[남여공용/빅후드] 백프린팅 오버핏 루즈 후드 티셔츠",
+      "price": 52700,
+      "season": "Winter",
+      "category": "Top",
+      "url": "https://m.a-bly.com/goods/39784172",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/xXu05YU1UF8/pr:GOODS_DETAIL/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzIwMjUwMjA1XzE3Mzg3NTQzMDM5ODM3MzNtLmpwZw",
+      "userId": "user"
+    },
+    {
+      "id": "1771507528085",
+      "name": "힙 자수 포인트 빈티지 와이드 데님",
+      "price": 50700,
+      "season": "Spring",
+      "category": "Bottom",
+      "url": "https://m.a-bly.com/goods/40282808",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/t2OOY2BRkHA/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI1MDIxMF8xNzM5MTk1MTI1NjQzOTAwbC5qcGc",
+      "userId": "user"
+    },
+    {
+      "id": "1771507642027",
+      "name": "아키브 라인 후드 패딩 점퍼",
+      "price": 37810,
+      "season": "Fall",
+      "category": "Outer",
+      "url": "http://m.a-bly.com/goods/57477826",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/8AMob0u1hKg/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI1MTIxMF8xNzY1MzQ1ODA1MDc1MjcybC5wbmc",
+      "userId": "user"
+    },
+    {
+      "id": "1771507716780",
+      "name": "5cm high-quality 모노 밍크 털슬리퍼",
+      "price": 29900,
+      "season": "Winter",
+      "category": "Shoes",
+      "url": "https://m.a-bly.com/goods/5114127",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/plXspw5xcLM/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDIyMTEwN18xNjY3ODEyMDkwNjgxMDA5bC5qcGc",
+      "userId": "user"
+    },
+    {
+      "id": "1771508151912",
+      "name": "비에튼 린넨 루즈 셋업",
+      "price": 55480,
+      "season": "Summer",
+      "category": "Dress",
+      "url": "https://m.a-bly.com/goods/51227477",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/jMbjzkgzvXA/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI1MDgwOF8xNzU0NjM1NjE3MDUxNDQ1bC5wbmc",
+      "userId": "user"
+    },
+    {
+      "id": "1771508490026",
+      "name": "[silver925] 진주 은목걸이",
+      "price": 22800,
+      "season": "Summer",
+      "category": "Accessories",
+      "url": "https://m.a-bly.com/goods/2606214",
+      "imageUrl": "https://d3ha2047wt6x28.cloudfront.net/yVQj2nbpEZM/pr:GOODS_INFORMATION/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2VkaXRvci8yMDI1MDkxOF8xNzU4MjAxNTY3MjU2OTY3bC5wbmc",
+      "userId": "user"
+    }
+  ],
+  "orders": [],
+  "carts": {
+    "user": []
+  }
+}
